@@ -1,0 +1,18 @@
+2023-06-10 22:19:56,785 we are inside the info main log root INFO
+2023-06-10 22:19:56,785 we are inside the error main log root ERROR
+2023-06-10 22:19:56,785 we are inside the warning main log root WARNING
+2023-06-10 22:19:56,785 watching dataframe root INFO
+2023-06-10 22:19:56,828 a quick look at data entries root INFO
+2023-06-10 22:19:56,828 checking for shape and null values root INFO
+2023-06-10 22:20:01,681 changing categorical values into numerical values by using level and coder method root INFO
+2023-06-10 22:20:02,669 spliting data set root INFO
+2023-06-10 22:20:02,672 Creating and training a Random Forest classifier root INFO
+2023-06-10 22:20:02,890 creating prediction column  root INFO
+2023-06-10 22:20:02,908 getting prediction report root INFO
+2023-06-10 22:20:02,912 seeking important features of dataset root INFO
+2023-06-10 22:20:02,922 Creating and training a Logistic Regression classifier root INFO
+2023-06-10 22:20:02,996 Creating and training a Decision Tree classifier root INFO
+2023-06-10 22:20:03,002 training adaboost clf taking decision tree clf as base estimator root INFO
+2023-06-10 22:20:03,023  Making predictions on the test set using each classifier root INFO
+2023-06-10 22:20:03,043 Calculating accuracies of each classifier root INFO
+2023-06-10 22:20:03,044 Defining the classifiers and plotting accuracies root INFO
