@@ -25,3 +25,5 @@ Evaluation Metrics: The trained model is evaluated using various evaluation metr
 
 Web Application Development: The Flask web framework is utilized to develop the Mushroom Classification Web Application. The application provides a user-friendly interface where users can input mushroom parameters.
 
+
+![image_2023-06-09_17-52-12](https://github.com/wJABBERWOCKw/Mushroom-Classification-Adaboost/assets/91718184/9e911403-814d-4bd4-b71b-42fc952b902f)
