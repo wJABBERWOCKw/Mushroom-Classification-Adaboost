@@ -27,3 +27,7 @@ Web Application Development: The Flask web framework is utilized to develop the 
 
 
 ![image_2023-06-09_17-52-12](https://github.com/wJABBERWOCKw/Mushroom-Classification-Adaboost/assets/91718184/9e911403-814d-4bd4-b71b-42fc952b902f)
+
+![image](https://github.com/wJABBERWOCKw/Mushroom-Classification-Adaboost/assets/91718184/ec61476e-36b1-4d66-b075-4566e4c45545)
+
+![image](https://github.com/wJABBERWOCKw/Mushroom-Classification-Adaboost/assets/91718184/b6d53c08-38c5-441f-9ffb-f8461fa4e5a7)
