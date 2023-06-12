@@ -10,3 +10,18 @@ category was merged with the toxic category. The Guide asserts unequivocally tha
 there is no simple rule for judging a mushroom's edibility, such as "leaflets three, leave it 
 be" for Poisonous Oak and Ivy.
 The main goal is to predict which mushroom is poisonous & which is edible.
+
+PROCESS FLOW
+
+Data Collection: A comprehensive dataset of mushroom samples with associated parameters and edibility labels is gathered. The dataset should encompass a diverse range of mushroom species and their various characteristics.
+
+Data Preprocessing: The collected dataset undergoes preprocessing steps to ensure its quality and suitability for training the classification model. This may involve handling missing values, normalizing features, and encoding categorical variables.
+
+Model Selection: The AdaBoost algorithm is chosen as the classification algorithm due to its ability to combine multiple weak learners (decision trees) to create a strong classifier. Decision trees are suitable base models as they can capture complex relationships between mushroom features.
+
+Training Phase: The dataset is divided into training and testing sets. The AdaBoost classifier is trained using the training set, where it iteratively adjusts the weights of the training samples to focus on difficult-to-classify instances. Decision trees are trained to minimize misclassification errors and optimize overall performance.
+
+Evaluation Metrics: The trained model is evaluated using various evaluation metrics, such as accuracy, precision, recall, and F1 score, to assess its performance. The goal is to achieve high accuracy and ensure reliable predictions.
+
+Web Application Development: The Flask web framework is utilized to develop the Mushroom Classification Web Application. The application provides a user-friendly interface where users can input mushroom parameters.
+
