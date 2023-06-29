@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  <style>
+    .login {
+      margin: 0 auto;
+      max-width: 400px;
+      padding: 1em;
+      background-color: #f4f7f8;
+      border-radius: 4px;
+      font-family: 'Arimo', sans-serif;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Pacifico', cursive;
+      color: #2c3e50;
+    }
+    .info {
+      text-align: center;
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th {
+      background-color: lightblue;
+      color: white;
+      font-weight: bold;
+      padding: 8px;
+    }
+    td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid lightgray;
+    }
+    td:first-child {
+      font-weight: bold;
+    }
+    form {
+      text-align: center;
+    }
+    .prediction {
+      font-weight: bold;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+      font-family: 'Arimo', sans-serif;
+      font-size: 16px;
+      color: #555;
+    }
+    
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="login">
+    <h1>Mushroom Prediction</h1>
+    <div class="info">
+      <table>
+        <tr>
+          <th>Attribute</th>
+          <th>Possible Values</th>
+        </tr>
+        <tr>
+          <td>cap-shape</td>
+          <td>bell=0, conical=1, convex=5, flat=2, knobbed=3, sunken=4</td>
+        </tr>
+        <tr>
+          <td>cap-surface</td>
+          <td>fibrous=0, grooves=1, scaly=3, smooth=2</td>
+        </tr>
+        <tr>
+          <td>cap-color</td>
+          <td>brown=4, buff=0, cinnamon=1, gray=3, green=r, pink=5, purple=6, red=2, white=7, yellow=8</td>
+        </tr>
+        <tr>
+          <td>bruises</td>
+          <td>bruises=1, no=0</td>
+        </tr>
+        <tr>
+          <td>odor</td>
+          <td>almond=0, anise=3, creosote=1, fishy=8, foul=2, musty=4, none=5, pungent=6, spicy=7</td>
+        </tr>
+        <tr>
+          <td>gill-attachment</td>
+          <td>attached=0, descending=1, free=2, notched=3</td>
+        </tr>
+        <tr>
+          <td>gill-spacing</td>
+          <td>close=0, crowded=2, distant=1</td>
+        </tr>
+        <tr>
+          <td>gill-size</td>
+          <td>road=0, narrow=1</td>
+        </tr>
+        <tr>
+          <td>gill-color</td>
+          <td>black=4, brown=5, buff=0, chocolate=3, gray=2, green=8, orange=6, pink=7, purple=9, red=1, white=10</td>
+        </tr>
+        <tr>
+          <td>stalk-shape</td>
+          <td>enlarging=0, tapering=1</td>
+        </tr>
+        <tr>
+          <td>stalk-root</td>
+          <td>bulbous=0, club=1, cup=5, equal=2, rhizomorphs=4, rooted=3, missing=6</td>
+        </tr>
+        <tr>
+          <td>stalk-surface-above-ring</td>
+          <td>fibrous=0, scaly=3, silky=1, smooth=2</td>
+        </tr>
+        <tr>
+          <td>stalk-surface-below-ring</td>
+          <td>fibrous=0, scaly=3, silky=1, smooth=2</td>
+        </tr>
+        <tr>
+          <td>stalk-color-above-ring</td>
+          <td>brown=4, buff=0, cinnamon=1, gray=3, orange=5, pink=6, red=2, white=7, yellow=8</td>
+        </tr>
+        <tr>
+          <td>stalk-color-below-ring</td>
+          <td>brown=4, buff=0, cinnamon=1, gray=3, orange=5, pink=6, red=2, white=7, yellow=8</td>
+        </tr>
+        <tr>
+          <td>veil-type</td>
+          <td>partial=0, universal=1</td>
+        </tr>
+        <tr>
+          <td>veil-color</td>
+          <td>brown=0, orange=1, white=2, yellow=3</td>
+        </tr>
+        <tr>
+          <td>ring-number</td>
+          <td>none=0, one=1, two=2</td>
+        </tr>
+        <tr>
+          <td>ring-type</td>
+          <td>cobwebby=0, evanescent=1, flaring=2, large=3, none=4, pendant=5, sheathing=6, zone=7</td>
+        </tr>
+        <tr>
+          <td>pore-print-color</td>
+          <td>black=2, brown=3, buff=0, chocolate=1, green=5, orange=4, purple=6, white=7, yellow=8</td>
+        </tr>
+        <tr>
+          <td>population</td>
+          <td>abundant=0, clustered=1, numerous=2, scattered=3, several=4, solitary=5</td>
+        </tr>
+        <tr>
+          <td>habitat</td>
+          <td>grasses=1, leaves=2, meadows=3, paths=4, urban=5, waste=6, woods=0</td>
+        </tr>
+      </table>
+    </div>
+    <form action="{{ url_for('predict') }}" method="post">
+        <div class="form-group">
+          <label for="cap-shape">Cap Shape:</label>
+          <input type="text" id="cap-shape" name="cap-shape" placeholder="Cap Shape" required>
+        </div>
+        <div class="form-group">
+          <label for="cap-surface">Cap Surface:</label>
+          <input type="text" id="cap-surface" name="cap-surface" placeholder="Cap Surface" required>
+        </div>
+        <div class="form-group">
+          <label for="cap-color">Cap Color:</label>
+          <input type="text" id="cap-color" name="cap-color" placeholder="Cap Color" required>
+        </div>
+        <div class="form-group">
+          <label for="bruises">Bruises:</label>
+          <input type="text" id="bruises" name="bruises" placeholder="Bruises" required>
+        </div>
+        <div class="form-group">
+          <label for="odor">Odor:</label>
+          <input type="text" id="odor" name="odor" placeholder="Odor" required>
+        </div>
+        <div class="form-group">
+          <label for="gill-attachment">Gill Attachment:</label>
+          <input type="text" id="gill-attachment" name="gill-attachment" placeholder="Gill Attachment" required>
+        </div>
+        <div class="form-group">
+          <label for="gill-spacing">Gill Spacing:</label>
+          <input type="text" id="gill-spacing" name="gill-spacing" placeholder="Gill Spacing" required>
+        </div>
+        <div class="form-group">
+          <label for="gill-size">Gill Size:</label>
+          <input type="text" id="gill-size" name="gill-size" placeholder="Gill Size" required>
+        </div>
+        <div class="form-group">
+          <label for="gill-color">Gill Color:</label>
+          <input type="text" id="gill-color" name="gill-color" placeholder="Gill Color" required>
+        </div>
+        <div class="form-group">
+          <label for="stalk-shape">Stalk Shape:</label>
+          <input type="text" id="stalk-shape" name="stalk-shape" placeholder="Stalk Shape" required>
+        </div>
+        <div class="form-group">
+          <label for="stalk-root">Stalk Root:</label>
+          <input type="text" id="stalk-root" name="stalk-root" placeholder="Stalk Root" required>
+        </div>
+        <div class="form-group">
+          <label for="stalk-surface-above-ring">Stalk Surface Above Ring:</label>
+          <input type="text" id="stalk-surface-above-ring" name="stalk-surface-above-ring" placeholder="Stalk Surface Above Ring" required>
+        </div>
+        <div class="form-group">
+          <label for="stalk-surface-below-ring">Stalk Surface Below Ring:</label>
+          <input type="text" id="stalk-surface-below-ring" name="stalk-surface-below-ring" placeholder="Stalk Surface Below Ring" required>
+        </div>
+        <div class="form-group">
+          <label for="stalk-color-above-ring">Stalk Color Above Ring:</label>
+          <input type="text" id="stalk-color-above-ring" name="stalk-color-above-ring" placeholder="Stalk Color Above Ring" required>
+        </div>
+        <div class="form-group">
+          <label for="stalk-color-below-ring">Stalk Color Below Ring:</label>
+          <input type="text" id="stalk-color-below-ring" name="stalk-color-below-ring" placeholder="Stalk Color Below Ring" required>
+        </div>
+        <div class="form-group">
+          <label for="veil-type">Veil Type:</label>
+          <input type="text" id="veil-type" name="veil-type" placeholder="Veil Type" required>
+        </div>
+        <div class="form-group">
+          <label for="veil-color">Veil Color:</label>
+          <input type="text" id="veil-color" name="veil-color" placeholder="Veil Color" required>
+        </div>
+        <div class="form-group">
+          <label for="ring-number">Ring Number:</label>
+          <input type="text" id="ring-number" name="ring-number" placeholder="Ring Number" required>
+        </div>
+        <div class="form-group">
+          <label for="ring-type">Ring Type:</label>
+          <input type="text" id="ring-type" name="ring-type" placeholder="Ring Type" required>
+        </div>
+        <div class="form-group">
+          <label for="spore-print-color">Spore Print Color:</label>
+          <input type="text" id="spore-print-color" name="spore-print-color" placeholder="Spore Print Color" required>
+        </div>
+        <div class="form-group">
+          <label for="population">Population:</label>
+          <input type="text" id="population" name="population" placeholder="Population" required>
+        </div>
+        <div class="form-group">
+          <label for="habitat">Habitat:</label>
+          <input type="text" id="habitat" name="habitat" placeholder="Habitat" required>
+        </div>
+      
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form>
+      
+      <br>
+      <br>
+      {{ prediction_text }}
+   
+    </div>
+</body>
+</html>
