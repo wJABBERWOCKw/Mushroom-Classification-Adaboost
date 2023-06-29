@@ -2,7 +2,6 @@ gunicorn
 numpy
 pandas
 scikit-learn
-pickle
 flask
 matplotlib
 seaborn
